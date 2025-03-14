@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+body {
+    display: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200vh;
+    text-align: center;
+    background-color: #202020 !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    color: white;
+    font-family: sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.star-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 98vw;
+    height: 220vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.star {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    filter: blur(10px);
+    animation: starPopUp 3s ease-out;
+}
+
+#navbarNav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar .nav-link {
+    position: relative;
+    padding: 12px 20px;
+    margin: 0 15px;
+    color: rgba(255, 255, 255, 0.81) !important;
+    text-decoration: none;
+}
+
+.navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover::after {
+    width: 80%;
+    left: 10%;
+}
+
+.navbar .nav-link:hover {
+    color: rgb(255, 255, 255) !important;
+}
+
+.navbar-brand {
+    color: rgb(255, 255, 255) !important;
+    font-weight: 700;
+    font-family: "poppins", sans-serif;
+}
+
+.navbar {
+    font-family: "space grotesk", sans-serif;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.284);
+    position: relative;
+    height: 80px;
+    backdrop-filter: blur(7px);
+}
+
+.header-profile {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    margin-top: -30px;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 160px;
+    width: 100%;
+    padding-left: 250px;
+    position: relative;
+}
+
+.profile-bg {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, rgba(174, 0, 255, 0.308), rgba(255, 179, 0, 0.434), rgba(255, 0, 238, 0.412));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+    border: 4px solid white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    transition: box-shadow 0.5s ease-in-out, transform 0.3s ease-in-out;
+    animation: popUp 1s ease-in-out;
+}
+
+.profile-bg::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 410px;
+    height: 410px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, rgba(174, 0, 255, 0.5), rgba(255, 179, 0, 0.5), rgba(255, 0, 238, 0.5));
+    filter: blur(25px);
+    opacity: 0;
+    z-index: -1;
+    mix-blend-mode: lighten;
+    transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.profile-bg:hover {
+    box-shadow: none;
+    transform: scale(1.03);
+}
+
+.profile-bg:hover::after {
+    opacity: 1;
+    filter: blur(30px);
+    animation: glow 3s infinite alternate ease-in-out;
+}
+
+.profile-bg:not(:hover) {
+    transform: scale(1);
+}
+
+.profile-bg:not(:hover)::after {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.8s ease-out 0.2s, filter 0.8s ease-out 0.2s;
+}
+
+.profile-pic {
+    width: 372px;
+    height: 372px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgb(0, 0, 0);
+}
+
+.profile-info {
+    max-width: 640px;
+    font-size: 26px;
+    color: white;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-left: 30px;
+    text-align: justify;
+    font-family: "Poppins", sans-serif;
+    animation: shift-up 0.8s ease-out forwards;
+}
+
+.profile-info span {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: shift-up 0.6s ease-out forwards;
+}
+
+.profile-info span:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.profile-info span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.profile-info span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.profile-info span:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.profile-info span:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.profile-info hr {
+    width: 95%;
+    height: 2px;
+    background-color: white;
+    border: none;
+    opacity: 1;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.gradient-text,
+.gradient-text-purple-yellow,
+.gradient-text-purple-yellow-pink,
+.gradient-text-purple-pink,
+.gradient-text-blue-white {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    color: white;
+}
+
+.gradient-text::before,
+.gradient-text-purple-yellow::before,
+.gradient-text-purple-yellow-pink::before,
+.gradient-text-purple-pink::before,
+.gradient-text-blue-white::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    font-size: inherit;
+    font-weight: inherit;
+    opacity: 1;
+    filter: blur(8px);
+}
+
+.gradient-text {
+    background: linear-gradient(to right, rgb(0, 193, 0), yellow);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.gradient-text::before {
+    background: linear-gradient(to right, rgb(0, 255, 0), rgb(255, 255, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-purple-yellow {
+    background: linear-gradient(to right, rgb(191, 0, 255), rgb(255, 179, 0));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.gradient-text-purple-yellow::before {
+    background: linear-gradient(to right, rgb(191, 0, 255), rgb(255, 179, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-purple-yellow-pink {
+    background: linear-gradient(to right, rgb(191, 0, 255), rgb(255, 170, 0), rgb(255, 0, 234));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.gradient-text-purple-yellow-pink::before {
+    background: linear-gradient(to right, rgb(191, 0, 255), rgb(255, 170, 0), rgb(255, 0, 234));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-purple-pink {
+    background: linear-gradient(to right, rgb(191, 0, 255), rgb(255, 0, 234));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.gradient-text-purple-pink::before {
+    background: linear-gradient(to right, rgb(191, 0, 255), rgb(255, 0, 234));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-blue-white {
+    background: linear-gradient(to right, rgb(89, 167, 255), rgb(29, 78, 255));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.gradient-text-blue-white::before {
+    background: linear-gradient(to right, rgb(89, 166, 255), rgb(36, 72, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.skills-section {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.skills-heading {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(60px);
+    animation: slideUp 1s ease-out forwards;
+}
+
+.skills-divider {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border: none;
+    opacity: 1;
+    margin: 10px auto 30px auto;
+    border-radius: 2px;
+    opacity: 0;
+    transform: translateY(60px);
+    animation: slideUp 1.5s ease-out forwards;
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+.skill-box {
+    position: relative;
+    overflow: hidden;
+    background: rgba(40, 40, 40, 0.268);
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.847);
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.615);
+    font-size: 18px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    margin-bottom: 30px;
+    margin-left: 15px;
+    margin-right: 10px;
+    border: solid 2px rgba(255, 255, 255, 0.944);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.353);
+    font-family: "Poppins", sans-serif;
+
+    animation: slideUp 2s ease-in-out;
+}
+
+.skill-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 110%;
+    height: 110%;
+    background: linear-gradient(45deg, rgb(174, 0, 255), rgb(255, 179, 0), rgb(255, 0, 238));
+    transition: 0.4s ease-in-out;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.skill-box:hover::before {
+    left: 0;
+}
+
+.skill-box * {
+    position: relative;
+    z-index: 1;
+}
+
+.skill-box img {
+    width: auto;
+    height: 50px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.247));
+    transition: filter 0.3s ease-in-out;
+}
+
+.skill-box:hover img {
+    filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+}
+
+.skill-box:hover {
+    background-size: 200% 200%;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgb(255, 255, 255);
+    transition: background 1.9s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.card-section {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 10px;
+}
+
+.card-heading {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 10px;
+    font-family: "space grotesk", sans-serif;
+    opacity: 0;
+    transform: translateY(60px);
+    animation: slideUp 1.5s ease-out forwards;
+}
+
+.card-divider {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border: none;
+    margin: 10px auto 30px auto;
+    border-radius: 2px;
+    opacity: 1;
+    opacity: 0;
+    transform: translateY(60px);
+    animation: slideUp 2s ease-out forwards;
+}
+
+.card {
+    background: rgb(0, 0, 0);
+    border: none;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 0px 0px 10px rgb(255, 255, 255);
+    animation: slideUp 2.5s ease-out;
+}
+
+.card img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+    font-family: "poppins", sans-serif;
+}
+
+.card-text {
+    color: #000000;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 20px rgb(255, 255, 255);
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+@keyframes popUp {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shift-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0% {
+        background: linear-gradient(to bottom, rgba(174, 0, 255, 0.7), rgba(255, 179, 0, 0.7), rgba(255, 0, 157, 0.7));
+        filter: blur(10px);
+    }
+
+    50% {
+        background: linear-gradient(to bottom, rgba(174, 0, 255, 0.7), rgba(255, 179, 0, 0.7), rgba(255, 0, 157, 0.7));
+        filter: blur(20px);
+    }
+
+    100% {
+        background: linear-gradient(to bottom, rgba(174, 0, 255, 0.7), rgba(255, 179, 0, 0.7), rgba(255, 0, 157, 0.7));
+        filter: blur(10px);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes starPopUp {
+    0% {
+        transform: scale(1.2);
+        opacity: 0.2;
+        filter: blur(30px);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+        filter: blur(10px);
+    }
+}
